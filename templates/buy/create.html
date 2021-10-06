@@ -1,0 +1,46 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block contents %}
+        <!-- BREADCRUMB AREA START -->
+        <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bs-bg="{% static 'img/bg/9.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                            <div class="section-title-area ltn__section-title-2">
+                                <h6 class="section-subtitle ltn__secondary-color">//  Welcome to our company</h6>
+                                <h1 class="section-title white-color">Contact Us</h1>
+                            </div>
+                            <div class="ltn__breadcrumb-list">
+                                <ul>
+                                    <li><a href="{% url 'page:home' %}">Home</a></li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BREADCRUMB AREA END -->
+
+        <div class="ltn__appointment-area pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="ltn__appointment-inner">
+                            <form action="" method="post" class="form-horizontal">
+                                {{form|crispy }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{% endblock contents %}
+    

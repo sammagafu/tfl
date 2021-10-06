@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django.utils.text import slugify
+
 import os
 from random import *
 
@@ -7,20 +9,42 @@ from random import *
 # Create your models here.
 class CarModel(models.Model):
     brand = models.CharField(max_length=120,verbose_name=_("car brand name"))
+    logo = models.ImageField(upload_to = 'car/logo/')
     slug = models.SlugField(_("slug"),editable=False,blank=True,null=True)    
 
     class Meta:
         verbose_name = _("Car Manufacture")
-        verbose_name_plural = _("Car Manufactures")
+        verbose_name_plural = _("Cars Manufactures")
 
     def __str__(self):
-        return self.name
+        return self.brand
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.brand)
+        super(CarModel, self).save(*args, **kwargs)
+
 
     def get_absolute_url(self):
         return reverse("CarModel_detail", kwargs={"pk": self.pk})
 
 class CarFeatures(models.Model):
     feature = models.CharField(max_length=50)
+    slug = models.SlugField(_("slug"),editable=False,blank=True,null=True)   
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.feature)
+        super(CarFeatures, self).save(*args, **kwargs) 
+
+    def __str__(self):
+        return self.feature
+
+    class Meta:
+        verbose_name = _("Feature")
+        verbose_name_plural = _("Features")
+    
+
 
 class SellCar(models.Model):
 
@@ -55,8 +79,8 @@ class SellCar(models.Model):
     )
 
 
-    brand = models.ForeignKey(CarModel, verbose_name=_(""), on_delete=models.CASCADE)
-    images = models.ImageField(upload_to = 'images/')
+    brand = models.ForeignKey(CarModel, verbose_name=_("Brand Name"), on_delete=models.CASCADE)
+    images = models.ImageField(upload_to = 'photo_path')
     model = models.CharField(max_length=50,verbose_name=_("Car Model"))
     color = models.CharField(max_length=50,verbose_name=_("Color of the car"),null=False,blank=False)
     trans = models.CharField(max_length=2,verbose_name=_("Transmision"),choices=CAR_TRANSMISSION)
@@ -74,8 +98,8 @@ class SellCar(models.Model):
     features = models.ManyToManyField(CarFeatures,verbose_name=_("features"))
     
     class Meta:
-        verbose_name = _("SellCar")
-        verbose_name_plural = _("SellCars")
+        verbose_name = _("Car")
+        verbose_name_plural = _("Cars")
 
     def __str__(self):
         return self.brand
