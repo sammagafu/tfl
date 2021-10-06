@@ -10,3 +10,18 @@ class Contactpage(TemplateView):
 
 class AboutUs(TemplateView):
     template_name = "pages/about.html"
+
+class ACService(TemplateView):
+    template_name = "pages/service/ac.html"
+
+class BrakeSuspension(TemplateView):
+    template_name = "pages/service/brakes.html"
+
+class CarDiagnosis(TemplateView):
+    template_name = "pages/service/diagnosis.html"
+
+class BodyWorkpaint(TemplateView):
+    template_name = "pages/service/body.html"
+
+class OriginalService(TemplateView):
+    template_name = "pages/service/original.html"
