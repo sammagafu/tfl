@@ -747,6 +747,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="number"]:focus,
 textarea:focus,
+select:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
@@ -762,7 +763,12 @@ code {
 /* ----------------------------------------------------
     Form input box
 ---------------------------------------------------- */
+input[type="file"]{
+  padding: 30px; ;
+}
 input[type="text"],
+input[type="number"],
+select,
 input[type="email"],
 input[type="password"],
 input[type="submit"],

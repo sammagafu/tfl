@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
+from django.urls import reverse
+
 
 import os
 from random import *
@@ -81,6 +83,7 @@ class SellCar(models.Model):
 
     brand = models.ForeignKey(CarModel, verbose_name=_("Brand Name"), on_delete=models.CASCADE)
     images = models.ImageField(upload_to = 'photo_path')
+    price = models.IntegerField(verbose_name=_("Cars Price"),null=False,blank=False,help_text="Enter price in USD",default=10)
     model = models.CharField(max_length=50,verbose_name=_("Car Model"))
     color = models.CharField(max_length=50,verbose_name=_("Color of the car"),null=False,blank=False)
     trans = models.CharField(max_length=2,verbose_name=_("Transmision"),choices=CAR_TRANSMISSION)
@@ -102,6 +105,9 @@ class SellCar(models.Model):
         verbose_name_plural = _("Cars")
 
     def __str__(self):
-        return self.brand
+        return self.model
+    
+    def get_absolute_url(self):
+        return reverse("buy:detail", kwargs={"pk": self.pk})
 
 
