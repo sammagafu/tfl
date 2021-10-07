@@ -25,3 +25,6 @@ class BodyWorkpaint(TemplateView):
 
 class OriginalService(TemplateView):
     template_name = "pages/service/original.html"
+
+class Insuarance(TemplateView):
+    template_name = "pages/insuarance.html"

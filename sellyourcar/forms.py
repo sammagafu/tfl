@@ -1,8 +1,8 @@
 from django import forms
-from . models import ClientCars
+from . models import ClientCar
 
 class ClientCarForm(forms.ModelForm):
     
     class Meta:
-        model = ClientCars
+        model = ClientCar
         fields = '__all__'

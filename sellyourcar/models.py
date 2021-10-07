@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 # Create your models here.
 
-class ClientCars(models.Model):
+class ClientCar(models.Model):
     Make = [
         ('Toyota','Toyota'),
         ('Audi','Audi'),
@@ -44,8 +44,8 @@ class ClientCars(models.Model):
     
 
     class Meta:
-        verbose_name = _("Cars that are sold")
-        verbose_name_plural = _("Cars that are solds")
+        verbose_name = _("Car for sale")
+        verbose_name_plural = _("Cars for sale")
 
     def __str__(self):
         return "{} {} {}".format(self.make,self.model,self.price)
