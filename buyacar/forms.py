@@ -1,8 +1,8 @@
 from django import forms
-from . models import SellCar
+from . models import BuyACar
 
 class SellingCarForm(forms.ModelForm):
     
     class Meta:
-        model = SellCar
+        model = BuyACar
         fields = '__all__'
