@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,FormView
+from .forms import AppointmentForm
 
 
 class Homepage(TemplateView):
@@ -28,3 +29,8 @@ class OriginalService(TemplateView):
 
 class Insuarance(TemplateView):
     template_name = "pages/insuarance.html"
+
+class Appointment(FormView):
+    form_class = AppointmentForm
+    template_name = "pages/appointment.html"
+    success_url = '/thanks/'

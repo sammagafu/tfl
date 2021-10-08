@@ -1,0 +1,42 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block contents %}
+<!-- BREADCRUMB AREA START -->
+<div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image"
+    data-bs-bg="{% static 'img/bg/9.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                    <div class="section-title-area ltn__section-title-2">
+                        <h6 class="section-subtitle ltn__secondary-color">// Need Mantainace ASAP</h6>
+                        <h1 class="section-title white-color">Schedule Appointment</h1>
+                    </div>
+                    <div class="ltn__breadcrumb-list">
+                        <ul>
+                            <li><a href="{% url 'page:home' %}">Home</a></li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB AREA END -->
+
+<div class="ltn__appointment-area pb-120">
+    <div class="container">
+        <div class="row">
+            <form action="" method="post">
+                {{ form }}
+
+                <div class="btn-wrapper text-center mt-0">
+                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Submit Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock contents %}

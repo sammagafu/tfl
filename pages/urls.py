@@ -7,6 +7,7 @@ urlpatterns = [
     path('contact-us', views.Contactpage.as_view(),name="contact"),
     path('about-us', views.AboutUs.as_view(),name="about"),
     path('insuarance', views.Insuarance.as_view(),name="insuarance"),
+    path('appointment', views.Appointment.as_view(),name="appointment"),
     path('service/air-condition', views.ACService.as_view(),name="ac"),
     path('service/brake-suspension', views.BrakeSuspension.as_view(),name="brakes"),
     path('service/car-diagnosis', views.CarDiagnosis.as_view(),name="diagnosis"),

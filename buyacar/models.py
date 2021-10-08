@@ -12,8 +12,8 @@ class CarModel(models.Model):
     slug = models.SlugField(_("slug"),editable=False,blank=True,null=True)    
 
     class Meta:
-        verbose_name = _("Car Manufacture")
-        verbose_name_plural = _("Cars Manufactures")
+        verbose_name = _("Car Brand")
+        verbose_name_plural = _("Car Brands")
 
     def __str__(self):
         return self.brand
@@ -40,8 +40,9 @@ class CarFeatures(models.Model):
         return self.feature
 
     class Meta:
-        verbose_name = _("Feature")
-        verbose_name_plural = _("Features")
+        verbose_name = _("Car Feature")
+        verbose_name_plural = _("Car Features")
+
     
 class Category(models.Model):
     name = models.CharField(max_length=120,help_text=_("If its a car, bike or Tricycle"))
@@ -56,8 +57,8 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = 'Motors Category(bike,car ..)'
+        verbose_name_plural = 'Motors Category(bike,car ..)'
 
 class CarColor(models.Model):
     color = models.CharField(verbose_name=_("Car Color"),max_length=30)
@@ -118,8 +119,8 @@ class BuyACar(models.Model):
     features = models.ManyToManyField(CarFeatures,verbose_name=_("features"))
     
     class Meta:
-        verbose_name = _("Car")
-        verbose_name_plural = _("Cars")
+        verbose_name = _("Place a car to sell")
+        verbose_name_plural = _("Place a cars to sell")
 
     def __str__(self):
         return self.model

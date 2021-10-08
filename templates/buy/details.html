@@ -31,7 +31,7 @@
     <div class="ltn__shop-details-area pb-85">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-10 col-md-12">
                     <div class="ltn__shop-details-inner mb-60">
                         <div class="row">
                             <div class="col-md-6">
@@ -42,59 +42,23 @@
                                                 <img src="{{ car.images.url }}" alt="Image">
                                             </a>
                                         </div>
+                                        {% for image in car.carimage_set.all %}
                                         <div class="single-large-img">
-                                            <a href="img/product/2.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/2.png" alt="Image">
+                                            <a href="{{ image.images.url }}" data-rel="lightcase:myCollection">
+                                                <img src="{{ image.images.url }}" alt="Image">
                                             </a>
                                         </div>
-                                        <div class="single-large-img">
-                                            <a href="img/product/3.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/3.png" alt="Image">
-                                            </a>
-                                        </div>
-                                        <div class="single-large-img">
-                                            <a href="img/product/4.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/4.png" alt="Image">
-                                            </a>
-                                        </div>
-                                        <div class="single-large-img">
-                                            <a href="img/product/5.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/5.png" alt="Image">
-                                            </a>
-                                        </div>
-                                        <div class="single-large-img">
-                                            <a href="img/product/6.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/6.png" alt="Image">
-                                            </a>
-                                        </div>
-                                        <div class="single-large-img">
-                                            <a href="img/product/7.png" data-rel="lightcase:myCollection">
-                                                <img src="img/product/7.png" alt="Image">
-                                            </a>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                     <div class="ltn__shop-details-small-img slick-arrow-2">
                                         <div class="single-small-img">
                                             <img src="{{ car.images.url }}" alt="Image">
                                         </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/2.png" alt="Image">
+                                        {% for image in car.carimage_set.all %}
+                                            <div class="single-small-img">
+                                            <img src="{{ image.images.url }}" alt="Image">
                                         </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/3.png" alt="Image">
-                                        </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/4.png" alt="Image">
-                                        </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/5.png" alt="Image">
-                                        </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/6.png" alt="Image">
-                                        </div>
-                                        <div class="single-small-img">
-                                            <img src="img/product/7.png" alt="Image">
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -107,12 +71,11 @@
                                     <div class="modal-product-meta ltn__product-details-menu-1">
                                         <ul>
                                             <li>
-                                                <strong>Categories:</strong> 
+                                                <strong>Features:</strong> 
                                                 <span>
-                                                    <a href="#">Parts</a>
-                                                    <a href="#">Car</a>
-                                                    <a href="#">Seat</a>
-                                                    <a href="#">Cover</a>
+                                                {% for feature in car.features.all %}
+                                                <a href="#">{{ feature.feature }}</a>
+                                                {% endfor %}
                                                 </span>
                                             </li>
                                         </ul>
@@ -157,95 +120,12 @@
                                     <hr>
                                     <div class="ltn__safe-checkout">
                                         <h5>Guaranteed Safe Checkout</h5>
-                                        <img src="img/icons/payment-2.png" alt="Payment Image">
+                                        <img src="{% static 'img/icons/payment-2.png' %}" alt="Payment Image">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar">
-                        <!-- Top Rated Product Widget -->
-                        <div class="widget ltn__top-rated-product-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border">Top Rated Product</h4>
-                            <ul>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{ car.images.url }}" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Mixel Solid Seat Cover</a></h6>
-                                            <div class="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/2.png" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Brake Conversion Kit</a></h6>
-                                            <div class="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-rated-product-item clearfix">
-                                        <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/3.png" alt="#"></a>
-                                        </div>
-                                        <div class="top-rated-product-info">
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Coil Spring Conversion</a></h6>
-                                            <div class="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Banner Widget -->
-                        <div class="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="img/banner/2.jpg" alt="#"></a>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </div>
