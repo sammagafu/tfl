@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,FormView
 from .forms import AppointmentForm
+from buyacar.models import BuyACar,Category
 
 
 class Homepage(TemplateView):
     template_name = "pages/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["brand"] = BuyACar.objects.all()[:8]
+        context["category"] = Category.objects.all()[:8]
+        return context
+    
 
 class Contactpage(TemplateView):
     template_name = "pages/contact.html"
