@@ -19,18 +19,45 @@ class SellingCarsListView(ListView):
         return context
 
 class GetCarsByMake(ListView):
-    model = BuyACar
-    template_name = "buy/index.html"
+    model = Category
+    template_name = "buy/filters.html"
+    context_object_name = "cars"
+
     
     def get_queryset(self):
-        name = self.kwargs.get('q', '')
+        name = self.kwargs['slug']
         object_list = self.model.objects.all()
-        print(name)
         if name:
-            object_list = object_list.filter(name__icontains=name)
+            object_list = object_list.filter(slug__icontains=name).get()
         return object_list
-    
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["category"] = Category.objects.all()
+        context["feature"] = CarFeatures.objects.all()
+        context["color"] = CarColor.objects.all()
+        return context
+
+class GetCarsByColor(ListView):
+    model = CarColor
+    template_name = "buy/filters.html"
+    context_object_name = "cars"
+
+    
+    def get_queryset(self):
+        name = self.kwargs['slug']
+        object_list = self.model.objects.all()
+        if name:
+            object_list = object_list.filter(slug__icontains=name).get()
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["category"] = Category.objects.all()
+        context["feature"] = CarFeatures.objects.all()
+        context["color"] = CarColor.objects.all()
+        return context
+        
 
 class SellingCarrsDetail(DetailView):
     model = BuyACar
