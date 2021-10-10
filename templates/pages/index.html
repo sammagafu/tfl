@@ -13,10 +13,13 @@
                         <div class="col-lg-12 align-self-center">
                             <div class="slide-item-info">
                                 <div class="slide-item-info-inner ltn__slide-animation">
-                                    <h1 class="slide-title animated ">Providing A <br> Professional & <br> Relaible
-                                        Service</h1>
-                                    <h6 class="slide-sub-title animated"><span>//</span> TALENTED ENGINEER & MECHANICS
+                                    <h1 class="slide-title animated ">We offer <br>Best car <br> for all Budgets</h1>
+                                    <h6 class="slide-sub-title animated"><span>#</span> See it, Try it, Drive it
                                     </h6>
+                                </div>
+                                <div class="btn-wrapper animated">
+                                    <a href="{% url 'buy:index' %}" class="theme-btn-1 btn btn-effect-1 text-uppercase">Buy a car</a>
+                                    <a href="{% url 'sell:index' %}" class="btn btn-transparent btn-effect-3 text-uppercase">sell used car</a>
                                 </div>
                             </div>
                             <div class="slide-item-img">
@@ -39,14 +42,13 @@
                                 <div class="slide-item-info-inner ltn__slide-animation">
                                     <h6 class="slide-sub-title ltn__secondary-color animated">// TALENTED ENGINEER &
                                         MECHANICS</h6>
-                                    <h1 class="slide-title animated ">Professional Car <br> Service Provide</h1>
+                                    <h1 class="slide-title animated ">Adnorning your <br> vehicle need</h1>
                                     <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore.</p>
+                                        <p>We offer best automobile service from service, body works, brakes and Suspension</p>
                                     </div>
                                     <div class="btn-wrapper animated">
-                                        <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                        <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
+                                        <a href="{% url 'page:original' %}" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
+                                        <a href="{% url 'page:appointment' %}" class="btn btn-transparent btn-effect-3">MAKE APPOINTMENT</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,8 +76,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:ac' %}">Air Condition Service</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>Is your air-condition not working properly, blowing hot air or has bad odul, came and will fix it for you </p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:ac' %}" class="btn btn-white btn-effect-4 btn-full-width">Learn More</a>
@@ -90,8 +91,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:brakes' %}">Brakes and Suspension</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>Brakes saves lives, not only pedestrian but also drivers and passenger's, we are committed to offer top-notch services in brakes and Suspension</p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:brakes' %}" class="btn btn-white btn-effect-3 btn-full-width">Learn More</a>
@@ -105,8 +105,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:diagnosis' %}">Car Diagnosis</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>Check your car regulary can identify problems earlier stage and save you time or prevent major problem, come and get your car checked for free</p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:diagnosis' %}" class="btn btn-white btn-effect-3 btn-full-width">Learn More</a>
@@ -123,8 +122,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:body' %}">Body Work</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>Your car have dents? or the color is fading, Got your self into accindent or scratch and you want to fix your body, and re-paint, we are her for you  </p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:body' %}" class="btn btn-white btn-effect-4 btn-full-width">Learn More</a>
@@ -139,8 +137,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:original' %}">Original Service Parts</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>We offer a full-spectrum services and facilities for cars. We have highly skilled, trained, professional and experienced technical personnel who will give your car the best service possible.</p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:original' %}" class="btn btn-white btn-effect-3 btn-full-width">Learn More</a>
@@ -154,8 +151,7 @@
                     </div>
                     <div class="ltn__feature-info">
                         <h2><a href="{% url 'page:insuarance' %}">Insuarance</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore.</p>
+                        <p>Looking for an insuarance broker?, visit or call or office and you will get outstanding insuarance deals, also advice on choosing the right insuarance service provider for your automobile</p>
                     </div>
                     <div class="btn-wrapper">
                         <a href="{% url 'page:insuarance' %}" class="btn btn-white btn-effect-3 btn-full-width">Learn More</a>
@@ -176,8 +172,8 @@
                     </div>
                     <div class="call-to-action-inner-content">
                         <div class="section-title-area ltn__section-title-2 text-center">
-                            <h6 class="section-subtitle ltn__secondary-color">// call to action //</h6>
-                            <h1 class="section-title">Get A Free Car Service<span>.</span></h1>
+                            <h6 class="section-subtitle ltn__secondary-color">// Get your car serviced//</h6>
+                            <h1 class="section-title">Car service for TZS 79,000<span>.</span></h1>
                         </div>
                         <div class="btn-wrapper">
                             <a href="r" class="btn theme-btn-1 btn-effect-1 text-uppercase">get an
