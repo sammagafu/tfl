@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k@wj4y&hx547yfsws%u_m04f^ld_-v*n31^p1fzgtdm54ui(01'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -78,25 +78,17 @@ WSGI_APPLICATION = 'tfl.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-elif DEBUG == False:
-    DATABASES = {
-        'default': {
+
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tflmotors',
         'USER': 'tfladmin',
         'PASSWORD': 'tflmotors-2021',
         'HOST': 'localhost',
         'PORT': '',
-        }
     }
-
+}
 
 
 # Password validation
