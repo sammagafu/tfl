@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'tfl.urls'
@@ -74,21 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tfl.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'tflmotors',
-#         'USER': 'tfladmin',
-#         'PASSWORD': 'tflmotors-2021',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -148,7 +132,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_ROOT  = BASE_DIR / "media"
