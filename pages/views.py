@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,FormView
 from .forms import AppointmentForm
-from buyacar.models import BuyACar,Category
+from . models import CampaignsModel
 
 
 class Homepage(TemplateView):
@@ -9,8 +9,7 @@ class Homepage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["brand"] = BuyACar.objects.all()[:8]
-        context["category"] = Category.objects.all()[:8]
+        context["campaign"] = CampaignsModel.objects.filter(active=True).first()
         return context
     
 

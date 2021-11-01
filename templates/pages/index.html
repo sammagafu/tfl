@@ -162,21 +162,24 @@
     </div>
 </div>
 <!-- GET A FREE SERVICE AREA START -->
+
+
+{% if campaign %}
 <div class="ltn__get-a-free-service-area get-a-free-service-margin">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="get-a-free-service-inner bg-white text-center pt-115 pb-100">
                     <div class="call-to-img">
-                        <img src="{% static 'img/bg/10.png' %}" alt="#">
+                        <img src="{{ campaign.image.url }}" alt="#">
                     </div>
                     <div class="call-to-action-inner-content">
                         <div class="section-title-area ltn__section-title-2 text-center">
-                            <h6 class="section-subtitle ltn__secondary-color">// Get your car serviced//</h6>
-                            <h1 class="section-title">Car service for TZS 79,000<span>.</span></h1>
+                            <h6 class="section-subtitle ltn__secondary-color">// {{ campaign.slogan }} //</h6>
+                            <h1 class="section-title">{{ campaign.campain }}<span>.</span></h1>
                         </div>
                         <div class="btn-wrapper">
-                            <a href="r" class="btn theme-btn-1 btn-effect-1 text-uppercase">get an
+                            <a href="{% url 'page:appointment' %}" class="btn theme-btn-1 btn-effect-1 text-uppercase">get an
                                 appointment</a>
                         </div>
                     </div>
@@ -189,6 +192,8 @@
     </div>
 </div>
 <!-- GET A FREE SERVICE AREA END -->
+{% endif %}
+    
 
 <!-- BRAND LOGO AREA START -->
 <div class="ltn__brand-logo-area ltn__brand-logo-1 section-bg-1 pt-290 pb-110 plr--9">
