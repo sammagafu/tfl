@@ -138,7 +138,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/staticfiles/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",BASE_DIR / "staticfiles"
+    BASE_DIR / "static","/home/sammy/tfl/static"
 ]
 
 # Default primary key field type
