@@ -137,7 +137,7 @@ if not DEBUG:
 
     STATICFILES_DIRS=[
         os.path.join(BASE_DIR,'static'),
-        # '/home/sammy/web/staticfiles/'
+        '/home/sammy/tfl/static/'
     ]
 else:
     STATICFILES_DIRS = [
