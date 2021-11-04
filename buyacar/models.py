@@ -139,7 +139,6 @@ class BuyACar(models.Model):
     drive  = models.CharField(max_length=12,verbose_name=_("Drive"),choices=Drive)
     available = models.BooleanField(_("Car is available"),default=True)
     features = models.ManyToManyField(CarFeatures,verbose_name=_("features"))
-    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     
     class Meta:
         verbose_name = _("Place a car to sell")
@@ -149,7 +148,7 @@ class BuyACar(models.Model):
         return self.model
     
     def get_absolute_url(self):
-        return reverse("buy:detail", kwargs={"uuid": self.uuid})
+        return reverse("buy:detail", kwargs={"pk": self.pk})
 
 class CarImage(models.Model):
     car = models.ForeignKey(BuyACar, default=None, on_delete=models.CASCADE)
