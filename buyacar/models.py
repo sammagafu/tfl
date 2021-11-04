@@ -1,5 +1,5 @@
 from django.db import models
-
+import uuid
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
 from django.urls import reverse
@@ -93,9 +93,31 @@ class BuyACar(models.Model):
         ('4WD','4WD'),
         ('AWD','AWD'),]
 
-    STATUS = [('Used','Used'),
-        ('New','New'),]
+    STATUS = [
+        ('Used Japan','Used Japan'),
+        ('Used Tanzania','Used Tanzania'),
+        ('New','New'),
+        ]
 
+    BODYTYPE = [
+        ('SUV','SUV'),
+        ('Truck','Truck'),
+        ('Pick up','Pick up'),
+        ('Van','Van'),
+        ('Sedan','Sedan'),
+        ('Bus','Bus'),
+        ('Min Van','Min Van'),
+        ('Hatchback','Hatchback'),
+        ('Coupe','Coupe'),
+        ('Convertible','Convertible'),
+        ('Wagon','Wagon'),
+        ('Min Bus','Min Bus'),
+        ('Machinery','Machinery'),
+        ('Forklift','Forklift'),
+        ('Tractor','Tractor'),
+        ('Motorcycle','Motorcycle'),
+        ('Tricycle','Tricycle'),
+    ]
 
     brand = models.ForeignKey(CarModel, verbose_name=_("Brand Name"), on_delete=models.CASCADE)
     category = models.ForeignKey(Category, verbose_name=_("Category"), on_delete=models.SET_NULL,null=True)
@@ -112,11 +134,12 @@ class BuyACar(models.Model):
     doors = models.IntegerField(verbose_name=_("Doors"),null=False,blank=False)
     seats = models.IntegerField(verbose_name=_("Seats"),null=False,blank=False)
     passenger = models.IntegerField(verbose_name=_("Passengers"),null=False,blank=False)
-    body = models.IntegerField(verbose_name=_("Body"),null=False,blank=False)
+    body = models.CharField(verbose_name=_("Body Type"),null=False,blank=False,choices=BODYTYPE,max_length=60,default="SUV")
     hand  = models.CharField(max_length=12,verbose_name=_("Driving Hand"),choices=HAND)
     drive  = models.CharField(max_length=12,verbose_name=_("Drive"),choices=Drive)
     available = models.BooleanField(_("Car is available"),default=True)
     features = models.ManyToManyField(CarFeatures,verbose_name=_("features"))
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     
     class Meta:
         verbose_name = _("Place a car to sell")
@@ -126,7 +149,7 @@ class BuyACar(models.Model):
         return self.model
     
     def get_absolute_url(self):
-        return reverse("buy:detail", kwargs={"pk": self.pk})
+        return reverse("buy:detail", kwargs={"uuid": self.uuid})
 
 class CarImage(models.Model):
     car = models.ForeignKey(BuyACar, default=None, on_delete=models.CASCADE)

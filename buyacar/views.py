@@ -61,6 +61,8 @@ class GetCarsByColor(ListView):
 
 class SellingCarrsDetail(DetailView):
     model = BuyACar
+    slug_field = 'uuid'
+    slug_url_kwarg = 'uuid'
     context_object_name = "car"
     template_name='buy/details.html'
 
@@ -68,3 +70,11 @@ class SellingCreateView(CreateView):
     model = BuyACar
     template_name = "buy/create.html"
     form_class = SellingCarForm
+
+class FilterStatus(ListView):
+    model = BuyACar
+    template_name = "buy/filters.html"
+    context_object_name = "cars"
+
+    def get_queryset(self):
+        return self.model.objects.all().filter(car_status="Used Japan").get()

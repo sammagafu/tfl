@@ -34,7 +34,7 @@
             <div class="col-lg-8 order-lg-2">
                 <div class="row">
                     {% for car in cars %}
-                    <div class="col-sm-6 col-6">
+                    <div class="col-sm-6 col-6 col-md-4 col-lg-4">
                         <div class="ltn__product-item ltn__product-item-3 text-center">
                             <div class="product-img">
                                 <a href="{{ car.get_absolute_url }}"><img src="{{ car.images.url }}"
@@ -44,7 +44,7 @@
                                 <h2 class="product-title"><a href="{{ car.get_absolute_url }}">{{ car.brand }} -
                                         {{ car.model }}</a></h2>
                                 <div class="product-price">
-                                    <span>$ {{ car.price|intcomma }}</span>
+                                    <span>TZS {{ car.price|intcomma }}</span>
                                 </div>
                                 <div class="product-info-brief">
                                     <ul>
