@@ -34,8 +34,14 @@ class BodyWorkpaint(TemplateView):
 class OriginalService(TemplateView):
     template_name = "pages/service/original.html"
 
+class SpareParts(TemplateView):
+    template_name = "pages/service/spare.html"
+
 class Insuarance(TemplateView):
     template_name = "pages/insuarance.html"
+
+class Service(TemplateView):
+    template_name = "pages/whatwedo.html"
 
 class Appointment(FormView):
     form_class = AppointmentForm
