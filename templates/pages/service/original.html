@@ -63,13 +63,7 @@
                 <aside class="sidebar-area ltn__right-sidebar">
                     <!-- Menu Widget -->
                     <div class="widget-2 ltn__menu-widget ltn__menu-widget-2 text-uppercase">
-                        <ul>
-                            <li><a href="{% url 'page:ac' %}">A/C Service</a></li>
-                            <li><a href="{% url 'page:brakes' %}">Brakes Suspension</a></li>
-                            <li><a href="{% url 'page:diagnosis' %}">Car Diagnosis</a></li>
-                            <li><a href="{% url 'page:body' %}">Body Work</a></li>
-                            <li><a href="{% url 'page:original' %}">Original Service Parts</a></li>
-                        </ul>
+                        {% include 'includes/sidebar.html' %}
                     </div>
                 </aside>
             </div>
